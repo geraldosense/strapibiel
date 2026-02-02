@@ -1,0 +1,21 @@
+﻿services:
+  - type: web
+    name: strapibiel
+    env: node
+    region: ohio
+    plan: free
+    branch: main
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 18
+    autoDeploy: true
+
+databases:
+  - name: strapidb
+    plan: free
+    databaseName: strapi
+    user: strapi
